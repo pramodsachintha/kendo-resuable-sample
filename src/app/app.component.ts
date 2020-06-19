@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SampleDataService } from './sample-data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'kendo-sample';
+  constructor(private customerService: SampleDataService) {
+  }
+
+  loadData = (params: any) => {
+    return this.customerService.getSampleCustomerData(params);
+  }
 }
